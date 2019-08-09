@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,t;
+    string s;
+    cin>>n>>t>>s;
+    char arr[n];
+    char temp;
+    char temp1;
+    for(int i=0;i<n;i++)
+    {
+        arr[i]=s[i];
+    }
+
+   for (int i=0;i<t;i++)
+   {
+       for(int j=1;j<n;)
+       {
+           if(arr[j]=='G'&& arr[j-1]=='B')
+           {
+               char temp='G';
+               char temp1='B';
+               arr[j]=temp1;
+               arr[j-1]=temp;
+               j=j+2;
+           }
+           else
+           {
+               j=j+1;
+           }
+       }
+   }
+   for(int i=0;i<n;i++)
+    {
+        cout<<arr[i];
+    }
+}
