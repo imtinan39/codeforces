@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+ struct level
+ {
+     int x;
+     int y;
+ };
+ int main()
+ {
+     int n,p,q,sum=0,lo,high,index=-1,mid;
+     cin>>n;
+     struct level levels[n];
+
+     for(int i=0;i<n;i++)
+     {
+        cin>>p;
+        levels[i].x=sum+1;
+        levels[i].y=sum+p;
+        sum=sum+p;
+
+     }
+     /*for(int i=0;i<n;i++)
+     {
+         cout<<levels[i].x<<" "<<levels[i].y<<endl;
+     }*/
+     int m;
+     cin>>m;
+     int w[m];
+     for(int i=0;i<m;i++)
+     {
+         cin>>w[i];
+         lo=0;
+         high=n-1;
+         //mid=(lo+high)/2;
+         int cnt;
+         while(lo<=high)
+         {
+             mid=(lo+high)/2;
+             if(w[i]>=levels[mid].x && w[i]<=levels[mid].y)
+             {
+                 index=mid+1;
+                 cout<<index<<endl;
+                 break;
+             }
+             else if(w[i]<levels[mid].x&&w[i]<levels[mid].y)
+             {
+                 high=mid-1;
+             }
+             else if(w[i]>levels[mid].y&&w[i]>levels[mid].x)
+             {
+                 lo=mid+1;
+             }
+         }
+
+     }
+
+
+ }
